@@ -1,0 +1,43 @@
+Edit info
+
+<form action="/admin/<%=@admin.id%>/sections/<%=@section.id%>" method="POST">
+		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+<input type="hidden" name="_method" value="put" />
+<input placeholder="<%=@section.name%>" name="name">
+<input placeholder="<%=@section.description%>" name="description">
+<input type="submit">
+</p>
+
+<%= form_for @section, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :images, :class => 'control-label' %>
+    <div class="controls">
+      <!-- The magic is coming ...look at my eyes....shazammmm -->
+      <!-- Use HTML5 multiple attribute to enable multiple selection
+           and pass back to controller all files as an array, ready 
+           for paperclip!!
+           file_field_tag, since images is not a gallery attribute
+       -->
+      <%= file_field_tag "photos[]", type: :file, multiple: true %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                images_path, :class => 'btn btn-mini' %>
+  </div>
+<% end %>

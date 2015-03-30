@@ -1,0 +1,357 @@
+<div id="menu-show">
+    <h2>MENU</h2>
+</div>
+<header class="left">
+    <section id="logo">
+        <figure>
+            <%=image_tag("logo-cka.png", alt: "Culinary Kids Academy")%>
+            <!-- <img src="imgs/layout/logo-cka.png" alt="Culinary Kids Academy"> -->
+            <!-- <figcaption></figcaption> -->
+        </figure>
+        <h1 class="logo">Culinary Kids Academy</h1>
+    </section>
+    
+    <nav role="main-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <ul class="navmenu">
+            <li id="nav-offering"><a href="#our-offering">Our offering</a></li>
+            <li id="nav-story"><a href="#cka-story">The CKA story</a></li>
+            <li id="nav-testimonials"><a href="#testimonials">Testimonials</a></li>
+            <li id="nav-blog"><a href="#blog">CKA blog</a></li>
+            <li id="nav-contact"><a href="#contact">Contact</a></li>
+        </ul>       
+    </nav>
+    <ul id="social-icons">
+        <li><a href="#" id="fb"> <%=image_tag("icons/icon-6-fb.png", alt: "Facebook")%> </a></li>
+        <li><a href="#" id="pin"><%=image_tag("icons/icon-7-pinterest.png", alt: "Pinterest")%></a></li>
+        <li><a href="#" id="ins"><%=image_tag("icons/icon-8-instagram.png", alt: "Instagram")%></a></li>
+    </ul>
+    <div id="copy"><p>©2015 Culinary Kids Academy</p></div>
+</header>
+<div id="content">
+    <section id="home">
+        <%=image_tag("slider/slide-01.jpg", alt: "Culinary Kids Academy")%>
+    </section>
+    <section id="our-offering" class="clearfix">
+        <ul id="subjects">          
+            <li>
+                <a href="#" data-toggle="modal" data-target="#historyModal">
+                     <%=image_tag("icons/icon-sec-history.png")%>
+                </a>
+                <h4>History</h4>
+            </li>
+            <div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                        History!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#scienceModal">
+                    <%=image_tag("icons/icon-sec-science.png")%>
+                </a>
+                <h4>Science</h4>
+            </li>
+            <div class="modal fade" id="scienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                        Science!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#mathModal">
+                    <%=image_tag("icons/icon-sec-math.png")%>
+                </a>
+                <h4>Math</h4>
+            </li>
+             <div class="modal fade" id="mathModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                       Math!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#nutritionModal">
+                    <%=image_tag("icons/icon-sec-nutrition.png")%>
+                </a>
+                <h4>Nutrition</h4>
+            </li>
+             <div class="modal fade" id="nutritionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                        Nutrition!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#safetyModal">
+                   <%=image_tag("icons/icon-sec-safety.png")%>
+                </a>
+                <h4>Safety</h4>
+            </li>
+             <div class="modal fade" id="safetyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                        Safety!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#judaicModal">
+                    <%=image_tag("icons/icon-sec-judaic-studies.png")%>
+                </a>
+                <h4>Judaic studies</h4>
+            </li>
+             <div class="modal fade" id="judaicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                        Judaic!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#campsModal">
+                   <%=image_tag("icons/icon-sec-camps.png")%>
+                </a>
+                <h4>Camps</h4>
+            </li>
+             <div class="modal fade" id="campsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                        Camps!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#recipesModal">
+                   <%=image_tag("icons/icon-sec-recipes.png")%>
+                </a>
+                <h4>Recipes</h4>
+            </li>
+             <div class="modal fade" id="recipesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                        Recipes!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </section>
+    <section id="cka-story" class="clearfix">
+        <iframe width="100%" height="650px" src="https://www.youtube.com/embed/QFDZEzLL2m0?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" frameborder="0" allowfullscreen></iframe>
+    </section>
+    <section id="testimonials" class="clearfix">
+        <div class="two-col external-content">
+            <h2 class="testimonial-header">Testimonials</h2>
+            <figure>
+                <%=image_tag("placeholder-testimonials.png", alt: "Testimonials")%>
+                <figcaption>Daniel Jones</figcaption>
+            </figure>           
+            <p class="testimonial-name"></p>
+            <p class="testimonial-content">
+                “Daniel is extremely  knowledgeable and fun. Kids are eating better, reading more labels, and understand what they are reading. Their habits are changing, and it’s all for the best.”
+            </p>
+            <button class="btn-external see-them-all">See them all</button>
+        </div>
+        <div class="two-col external-content" id="#blog">
+            <h2 class="posts-header">Latest posts</h2>
+            <ul id="latest-posts">
+                <li class="clearfix">
+                    <%=image_tag("placeholder-posts-1.png", alt: "")%>
+                    <p>
+                        <span class="posts-name">Richard Nyman </span>
+                        <span class="posts-title">The CKA Experience on campus</span>
+                    </p>
+                </li>
+                <li class="clearfix">
+                    <%=image_tag("placeholder-posts-2.png", alt: "")%>
+                    <p>
+                        <span class="posts-name">Melanie Archer </span>
+                        <span class="posts-title">7 reasons why you want CKA in your school</span>
+                    </p>
+                </li>
+                <li class="clearfix">
+                    <%=image_tag("placeholder-posts-3.png", alt: "")%>
+                    <p>
+                        <span class="posts-name">Victoria Yoffie </span>
+                        <span class="posts-title">On how eating and excercise know no age</span>
+                    </p>
+                </li>
+            </ul>
+            <button class="btn-external go-to-blog">Go to the blog</button>
+        </div>
+    </section>
+    <section id="social" class="clearfix">
+        <div class="two-col" id="phone">
+            <h2 class="call">Call Us: (555) 555-55555</h2>
+        </div>
+        <div class="two-col" id="social-icons-big">
+            <ul>
+                <li><a href="#" id="fb-big"><%=image_tag("icons/icon-soc-fb.png", alt: "Facebook")%></a></li>
+                <li><a href="#" id="pin-big"><%=image_tag("icons/icon-soc-pinterest.png", alt: "Pinterest")%></a></li>
+                <li><a href="#" id="ins-big"><%=image_tag("icons/icon-soc-instagram.png", alt: "Instagram")%></a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="instagram">
+        <ul>
+            <li>
+                <div class="description">
+                    <p><%=low_res[0]['caption']%></p>
+                </div>
+                <img src="<%=low_res[0]['image']%>" alt="">
+            </li><li>
+                <div class="description">
+                    <p><%=low_res[1]['caption']%></p>
+                </div>
+                <img src="<%=low_res[1]['image']%>" alt="">
+            </li><li>
+                <div class="description">
+                    <p><%=low_res[2]['caption']%></p>
+                </div>
+                <img src="<%=low_res[2]['image']%>" alt="">
+            </li><li>
+                <div class="description">
+                    <p><%=low_res[3]['caption']%></p>
+                </div>
+                <img src="<%=low_res[3]['image']%>" alt="">
+            </li><li>
+                <div class="description">
+                    <p><%=low_res[4]['caption']%></p>
+                </div>
+                <img src="<%=low_res[4]['image']%>" alt="">
+            </li><li>
+                <div class="description">
+                    <p><%=low_res[5]['caption']%></p>
+                </div>
+                <img src="<%=low_res[5]['image']%>" alt="">
+            </li><li>
+                <div class="description">
+                    <p><%=low_res[6]['caption']%></p>
+                </div>
+                <img src="<%=low_res[6]['image']%>" alt="">
+            </li><li>
+                <div class="description">
+                    <p><%=low_res[7]['caption']%></p>
+                </div>
+                <img src="<%=low_res[7]['image']%>" alt="">
+            </li>
+        </ul>
+        
+    </section>
+    <footer>
+        <div class="three-col">
+            <h3>CKA</h3>
+            <ul>
+                <li>Our offering</li>
+                <li>The CKA story</li>
+                <li>Testimonials</li>
+                <li>CKA blog</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="three-col">
+            <h3>About Us</h3>
+            <ul>
+                <li>Company</li>
+                <li>Our Team</li>
+                <li>Contacts</li>
+                <li>Terms and Conditions</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+        <div class="three-col">
+            <h3>Subscribe</h3>
+            <form action="" method="post">
+                <input type="text" placeholder="hello@cka.com">
+                <input type="submit" value="Send">
+            </form>
+        </div>
+
+    </footer>
+</div>
+
+
+

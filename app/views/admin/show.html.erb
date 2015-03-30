@@ -1,0 +1,48 @@
+Hello Admin <%=@admin.fname%>
+
+<form method="POST" action="/session">
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+	<input name="_method" value="DELETE" type="hidden">
+  	<button class="logout_button">Logout</button>  
+</form>
+
+<form action="/<%=@admin.id%>/images"
+method="post" enctype="multipart/form-data">
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <input type="file" value="image">
+  <input type="submit">
+</form>
+
+
+
+
+
+
+Manage Sections and Content<br>
+
+<% @sections.each do |s| %>
+
+<li><%= s.name %>, <%=s.description%>, <a href="/admin/<%=@admin.id%>/sections/<%=s.id%>/edit">Edit</a></li>
+
+<% end %>
+
+<br>
+
+Manage Testimonials and Content<br>
+
+<% @testimonials.each do |t| %>
+
+<li><%= t.name %>, <%=t.description%> <a href="/admin/<%=@admin.id%>/testimonials/<%=t.id%>/edit">Edit</a></li>
+
+<% end %>
+
+<br>
+
+Test Image Uploading
+
+<form id="file-form" action="/admin/<%=@admin.id%>/images" method="POST" enctype='multipart/form-data'>
+    <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+<input type="file" id="file-select" name="image_file"/>
+<button type="submit" id="upload-button">Upload</button>
+ </form>
+

@@ -1,0 +1,26 @@
+
+
+  <div class="error_message">
+        <% if @error == true %>
+        <p>Try again... </p>
+        <% end %>
+    </div>
+
+  <form class="login_form" action="/session" method="POST">
+        <input type="text" name="email" placeholder="EMAIL"> 
+        <input type="password" name="password" placeholder="PASSWORD">
+        <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+        <button>ENTER</button> 
+    </form>
+
+    <h1> Sign Up</h1>
+
+       
+    <form class="sign_up_form" action="/admin" method="POST">
+        <input type="text" name="fname" placeholder="First Name">
+        <input type="text" name="lname" placeholder="Last Name">
+        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="password" placeholder="Password">
+        <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+        <button>Sign Up</button> 
+    </form>

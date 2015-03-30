@@ -1,0 +1,22 @@
+
+<!-- <form action="/admin/<%=@admin.id%>/testimonials/<%=@testimonial.id%>" method="POST">
+		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+<input type="hidden" name="_method" value="put" />
+<input placeholder="<%=@testimonial.name%>" name="name">
+<input placeholder="<%=@testimonial.description%>" name="description">
+<input type="submit">
+</p> -->
+
+<% if @testimonial.image? %>
+	<%=image_tag @testimonial.image.url %>
+	<br>
+	<%= link_to @testimonial.image.url, @testimonial.image.url %>
+<% end %>
+
+
+
+<%= form_for @testimonial, :url => admin_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :image %>
+  <%= form.submit "Create" %>
+<% end %>
+
