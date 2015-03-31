@@ -6,7 +6,7 @@ class SectionsController < ApplicationController
 	end
 
 	def edit
-
+		@image = Image.find_by(section_id: params['id'])
 		@section = Section.find_by(id: params["id"])
 		@admin = Admin.find_by(id: params["admin_id"])
 		# @image = Image.where(section: params['id'])
@@ -15,19 +15,18 @@ class SectionsController < ApplicationController
 	def update
 		
 		@section = Section.find(params['id'])
-		binding.pry
+		@section.update(section_params)
 		
-
-     	if @section.update_attributes(section_params)
-	        if params[:photos]
-	          # The magic is here ;)
-	          	params[:photos].each do |photo|
-	            	@section.images.create(photo: photo)
-	        	end
+	
+     	
+	     #    if params[:photos]
+	     #      
+	     #        	@section.images.create(photo: photo)
+	     #    	end
 	      
-	      	end
-      	end
-      	redirect_to "/admin/#{params['admin_id']}"
+	     #  	end
+      # 	end
+      	redirect_to "/admin/#{params["admin_id"]}"
     end
 
 	
@@ -39,6 +38,6 @@ class SectionsController < ApplicationController
                                     :name,
                                     :images
                                    )
-  end
+ 	 end
 
 end

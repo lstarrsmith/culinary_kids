@@ -1,22 +1,21 @@
 class ImagesController < ApplicationController
 
+  def index
+    @images = Image.all
+    render(:index)
+  end
+
+  def new
+    @image = Image.new
+    render(:new)
+  end
+
+
 	def create
-    	binding.pry
-	    # build a photo and pass it into a block to set other attributes
-	    @image = Image.new(params[:image]) do |t|
-	      if params[:image][:image_file]
-	        t.data      = params[:image][:image_file].read
-	        t.filename  = params[:image][:image_file].original_filename
-	        t.mime_type = params[:image][:image_file].content_type
-	      end
-    end
-    
-    # normal save
-    if @image.save
-      redirect_to(@image, :notice => 'Photo was successfully created.')
-    else
-      render :action => "new"
-    end
+	    @image = Image.new(image_params)
+      @image.save
+      render(:index)
+     
   end
   
   def destroy
@@ -26,7 +25,7 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-  	params.require(:image).permit(:file)
+  	params.require(:image).permit(:photo)
   end
 
 end

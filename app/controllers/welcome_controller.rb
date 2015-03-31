@@ -14,7 +14,13 @@ class WelcomeController < ApplicationController
 			ck_insta['data'].each do |post|
 				low_res.push({'image' => post['images']['low_resolution']['url'], 'caption' => post['caption']['text']})
 			end
+			@section = Section.all
+			@testimonial = Testimonial.all
+			
+
 			render(:index, {locals: {low_res: low_res}})
+
+
 		
 	end
 end

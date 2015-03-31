@@ -1,0 +1,9 @@
+Test
+
+<%= form_for [:admin, @image], url: {action: "create"}, :html => {:multipart => true} do |f| %>
+ 
+<%= f.file_field :photo %>
+<%= f.submit "submit" %>
+ 
+
+<% end %>

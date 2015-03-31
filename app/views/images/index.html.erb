@@ -1,0 +1,8 @@
+<a href="images/new">Add Image</a>
+
+<%@image = Image.all %>
+<% @image.each do |img| %>
+
+	<ol><%= image_tag img.photo.url(:medium) %></ol>
+
+<% end %>

@@ -1,14 +1,12 @@
 class AdminController < ApplicationController
 		
 		def index
-
 			render(:index)
 		end	
 
 
 
 		def create 
-			binding.pry
 
 			new_admin = Admin.create({
 				fname: params["fname"], 
@@ -21,6 +19,7 @@ class AdminController < ApplicationController
 		end
 
 		def show
+		
 			@admin = Admin.find_by(id: params[:id])
 			@sections = Section.all
 			@image = Image.all
