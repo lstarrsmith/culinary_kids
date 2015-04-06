@@ -85,6 +85,13 @@ table {
 
 a img { border: none; }
 
+input[type=submit] {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 3px 12px;
+    border: none;
+}
+
 /* Clearing */
 
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } 
@@ -229,7 +236,10 @@ ul.navmenu li {
     font-size: 1.2rem; 
     padding: 0.9375rem 0 2.1875rem 1.4375rem; 
     position: relative;
+    -webkit-transition: background-color .3s ease-out ;
     -moz-transition: background-color .3s ease-out ;
+    -ms-transition: background-color .3s ease-out ;
+    transition: background-color .3s ease-out ;
 }
 ul.navmenu li a {  
     color: #fff;
@@ -265,6 +275,41 @@ ul.navmenu li#nav-contact {
 
 ul.navmenu li#nav-offering:hover, ul.navmenu li#nav-story:hover, ul.navmenu li#nav-testimonials:hover, ul.navmenu li#nav-blog:hover, ul.navmenu li#nav-contact:hover  {
     background-color: #2b2e32;
+}
+
+ul#board {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+ul#board li {
+    width: 25%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: relative; 
+}
+
+ul#board li#cka-text {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #66b7f5;
+    z-index: 900;
+}
+div.cka-text-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2b2e32;
+}
+
+ul#board li#cka-text h4 {
+    font-family: 'AGaramondPro-Regular', serif;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 ul#social-icons {
@@ -326,6 +371,11 @@ ul#latest-posts li p {
     position: relative;
 }
 
+ul#board div.description {
+    font-family: "AGaramondPro-Regular", serif;
+    font-size: 1rem;
+}
+
 .description {
     position: absolute;
     opacity: 0;
@@ -334,16 +384,25 @@ ul#latest-posts li p {
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
     color: #fff;
-    text-align: center;
-    padding-top: 40%;
+    padding: 0 1rem;    
     -webkit-transition:  all .3s ease;
     -moz-transition:  all .3s ease;
     -o-transition:  all .3s ease;
     transition:  all .3s ease;
 }
 
-#instagram ul li:hover .description {
-    display: block;
+.positioned {               
+    width: 100%; 
+    height: 100%; 
+    display: table; 
+}
+.description-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#instagram ul li:hover .description,  ul#board li:hover .description {
     background: rgba(0,0,0,.5);
     opacity: 1;
 }
@@ -359,6 +418,18 @@ ul#latest-posts li p {
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+  font-family: 'AGaramondPro-Regular';
+  src: url('../assets/AGaramondPro-Regular.eot');
+  src: url('../assets/AGaramondPro-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/AGaramondPro-Regular.woff2') format('woff2'),
+       url('../assets/AGaramondPro-Regular.woff') format('woff'),
+       url('../assets/AGaramondPro-Regular.ttf') format('truetype'),
+       url('../assets/AGaramondPro-Regular.svg#AGaramondPro-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 body { font-family: Lato; color: #5D5555; }
 
@@ -381,6 +452,7 @@ h2.posts-header {
     background: url('../assets/icons/icon-4-blog.png') 0 0 no-repeat;
     /*background-size: 60%;*/
 }
+
 figcaption {
     text-align: center; text-transform: uppercase;
 }
@@ -392,25 +464,49 @@ p.testimonial-content {
     font-size: .8rem;
 }
 #phone h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     /*padding: 4rem;*/
 }
 footer {
     color: #ececec;
+    position: relative;
 }
 footer li {
     font-size: .8rem;
+}
+footer .three-col.company {
+    width: 50%;
+    margin-top: 85px;
+}
+footer .three-col.subscribe {
+    position: absolute;
+    width: 100%;
+    text-align: center; 
+    padding-bottom: 3rem;
+    top: 0;
 }
 /*********** 5. images *************************/
 
 img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: middle }
 
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 /*********** 6. media queries ******************/
 
 
-@media only screen and (min-width: 600px) { 
-    
+@media only screen and (min-width: 600px) {     
     #instagram ul li {
         width: 25%;
     }
@@ -420,13 +516,30 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         width: 50%;
         float: left;
     }
-    #testimonials figure  img {
+    #testimonials figure img {
         width: 40%;
     }
+    ul#board div.description {        
+        font-size: 2rem;
+    }
+        
+
+    footer .three-col.company {
+        width: 33.33%;
+        margin-top: 0px;
+    }
+    footer .three-col.subscribe {
+        position: relative;
+        width: 33.33%;
+        text-align: left; 
+        padding-bottom: 3rem;
+    }
+
+
+
 }
 
-@media only screen and (min-width: 800px) {    
-   
+@media only screen and (min-width: 800px) {       
     #our-offering {
         margin: 2em 0;
     }
@@ -461,7 +574,26 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         width: 50%;
         padding: 0.5rem;
         float: left;
-    } 
+    }
+    ul#board div.description {
+        font-size: 3rem;
+    }
+    #phone h2 {
+        font-size: 2rem;
+        /*padding: 4rem;*/
+    }
+
+    ul#board li#cka-text {
+        width: 50%;
+        position: relative;
+        color: #66b7f5;
+    }
+    div.cka-text-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #2b2e32;
+    }
 
 }
 
@@ -483,7 +615,9 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     footer .three-col {
         padding: 6rem;
     }
-
+    ul#board div.description {        
+        font-size: 3.7rem;
+    }
 }
 @media only screen and (min-width: 1240px) {
     ul.navmenu li a {
@@ -492,15 +626,118 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
 }
 
 
+@media only screen and (min-width: 1440px) {
+    #instagram ul li {
+        width: 12.5%;
+    }
+}
 
 
+/*********** 7. admin screens ******************/
+
+.image_box {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 350px;
+    display: inline-block;
+}
+
+ul.navmenu li#nav-test {    
+ 
+    background-color: #4f8dd1;
+
+}
+ul.navmenu li#nav-test2 {    
+    
+    background-color: #7656a3;
+}
+ul.navmenu li#nav-test3 {    
+    
+    background-color: #7eb960;
+}
+ul.navmenu li#nav-test4 {    
+    
+    background-color: #da7a16;
+
+}
+
+#admin_subjects 
 
 
+ul#admin_subjects {
+    margin: 0;
+    padding: 0;
+}
+ul#admin_subjects li { 
+    float: left;
+    width: 25%;
+    padding: 0.6rem;
+    text-align: center;
+    margin: 0;
+}
+
+@media only screen and (min-width: 800px) {       
+    #our-offering {
+        margin: 2em 0;
+    }
+    ul#admin_subjects li { 
+        width: 10%;
+    }
+}
 
 
+/*********** 8. login ******************/
 
 
+.wrapper_login {  
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
 
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+
+}
+
+  .form-signin-heading,
+    .checkbox {
+      margin-bottom: 30px;
+    }
+
+    .checkbox {
+      font-weight: normal;
+    }
+
+    .form-control {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+        @include box-sizing(border-box);
+
+        &:focus {
+          z-index: 2;
+        }
+    }
+
+   .wrapper_login input[type="text"] {
+      margin-bottom: -1px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .wrapper_login input[type="password"] {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+}
 
 
 

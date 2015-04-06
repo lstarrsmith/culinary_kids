@@ -29,10 +29,6 @@ ActiveRecord::Schema.define(version: 20150330210930) do
     t.integer  "section_id"
     t.string   "word_overlay"
     t.boolean  "show_word_overlay"
-    t.binary   "image_file"
-    t.string   "filename"
-    t.string   "mime_type"
-    t.string   "name"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"

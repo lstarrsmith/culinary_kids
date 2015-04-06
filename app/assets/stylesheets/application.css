@@ -15,4 +15,5 @@
  *= require normalize
  *= require bootstrap.min
  *= require styles
+ *= require admin_styles
  */

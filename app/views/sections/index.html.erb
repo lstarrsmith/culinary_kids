@@ -1,0 +1,36 @@
+<header class="left" style="display:fixed">
+    <section id="logo">
+        <figure>
+            <%=image_tag("logo-cka.png", alt: "Culinary Kids Academy")%>
+            <!-- <img src="imgs/layout/logo-cka.png" alt="Culinary Kids Academy"> -->
+            <!-- <figcaption></figcaption> -->
+        </figure>
+        <h1 class="logo">Culinary Kids Academy</h1>
+    </section>
+    
+    <nav role="main-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <ul class="navmenu">
+            <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
+            <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
+            <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
+            <li id="nav-test4">
+            	<form method="POST" action="/session">
+					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+					<input name="_method" value="DELETE" type="hidden">
+	  				<button class="submit">Logout</button>  
+				</form>
+            </li>
+            
+        </ul>       
+    </nav>
+</header>
+
+
+<div id="content">
+
+
+			<% @sections.each do |s| %>
+			<li><%= s.name %>, <%=s.description%>, <a href="/admin/<%=@admin.id%>/sections/<%=s.id%>/edit">Edit</a></li><br>
+			<% end %>
+
+</div>

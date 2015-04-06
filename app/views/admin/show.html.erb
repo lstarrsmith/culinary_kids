@@ -1,32 +1,42 @@
-Hello Admin <%=@admin.fname%>
+<header class="left" style="display:fixed">
+    <section id="logo">
+        <figure>
+            <%=image_tag("logo-cka.png", alt: "Culinary Kids Academy")%>
+            <!-- <img src="imgs/layout/logo-cka.png" alt="Culinary Kids Academy"> -->
+            <!-- <figcaption></figcaption> -->
+        </figure>
+        <h1 class="logo">Culinary Kids Academy</h1>
+    </section>
+    
+    <nav role="main-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <ul class="navmenu">
+            <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
+            <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
+            <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
+            <li id="nav-test4">
+            	<form method="POST" action="/session">
+					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+					<input name="_method" value="DELETE" type="hidden">
+	  				<button class="submit">Logout</button>  
+				</form>
+            </li>
+            
+        </ul>       
+    </nav>
+</header>
 
-<form method="POST" action="/session">
-	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-	<input name="_method" value="DELETE" type="hidden">
-  	<button class="logout_button">Logout</button>  
-</form>
 
+<!-- 
+<div class="container" style="text-align:center">
 
-<h1>Manage Sections and Content</h1><br>
+	<h1>Hello Admin <%=@admin.fname%></h1>
 
-<% @sections.each do |s| %>
+	<!<form method="POST" action="/session">
+		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+		<input name="_method" value="DELETE" type="hidden">
+	  	<button class="logout_button">Logout</button>  
+	</form>
 
-<li><%= s.name %>, <%=s.description%>, <a href="/admin/<%=@admin.id%>/sections/<%=s.id%>/edit">Edit</a></li><br>
+	<button class="btn btn-primary" data-toggle="collapse" href="#section_content" aria-expanded="false" aria-controls="section_content">Edit Section Content</button> -->
 
-<% end %>
-
-<br>
-
-Manage Testimonials and Content<br>
-
-<% @testimonials.each do |t| %>
-
-<li><%= t.name %>, <%=t.description%> <a href="/admin/<%=@admin.id%>/testimonials/<%=t.id%>/edit">Edit</a></li>
-
-<% end %>
-
-<br>
-
-Images 
-
-<a href="/admin/<%=@admin.id%>/images"> Images </a>
+		

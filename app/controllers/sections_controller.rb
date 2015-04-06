@@ -1,7 +1,14 @@
 class SectionsController < ApplicationController
 
+	def index
+		@sections = Section.all
+		@admin = Admin.find_by(id: params["admin_id"])
+	end
+	
+
 	def show 
 		@section = Section.find_by(id: params["id"])
+		@admin = Admin.find_by(id: params["admin_id"])
 
 	end
 
@@ -15,17 +22,8 @@ class SectionsController < ApplicationController
 	def update
 		
 		@section = Section.find(params['id'])
-		@section.update(section_params)
-		
-	
-     	
-	     #    if params[:photos]
-	     #      
-	     #        	@section.images.create(photo: photo)
-	     #    	end
-	      
-	     #  	end
-      # 	end
+		@section.update(name: params['name'], description: params['description'])
+		@admin = Admin.find_by(id: params["admin_id"])
       	redirect_to "/admin/#{params["admin_id"]}"
     end
 
@@ -33,11 +31,6 @@ class SectionsController < ApplicationController
 
 
 
-	def section_params
-    params.require(:section).permit(:description,
-                                    :name,
-                                    :images
-                                   )
- 	 end
+	
 
 end

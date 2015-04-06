@@ -19,17 +19,16 @@ class AdminController < ApplicationController
 		end
 
 		def show
-		
+			
 			@admin = Admin.find_by(id: params[:id])
-			@sections = Section.all
-			@image = Image.all
-			@testimonials = Testimonial.all
+			@sections = Section.order('id')
+			@testimonials = Testimonial.order('id')
 			
 			
 		end
 
 		def update
-			binding.pry
+			
 		end
 		
 

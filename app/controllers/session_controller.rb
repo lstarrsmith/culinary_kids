@@ -8,13 +8,13 @@ class SessionController < ApplicationController
 			redirect_to "/admin/#{admin.id}"
 		else
 			@error = true
-			render "welcome/index"
+			render "admin/index"
 		end
 	end
 
 	def destroy
 		reset_session
-		render "welcome/index"
+		redirect_to '/'
 	end
 end
 

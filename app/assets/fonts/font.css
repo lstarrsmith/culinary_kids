@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'AGaramondPro-Regular';
+  src: url('AGaramondPro-Regular.eot');
+  src: url('AGaramondPro-Regular.eot?#iefix') format('embedded-opentype'),
+       url('AGaramondPro-Regular.woff2') format('woff2'),
+       url('AGaramondPro-Regular.woff') format('woff'),
+       url('AGaramondPro-Regular.ttf') format('truetype'),
+       url('AGaramondPro-Regular.svg#AGaramondPro-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

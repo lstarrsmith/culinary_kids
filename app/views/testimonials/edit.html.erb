@@ -1,22 +1,44 @@
+<header class="left" style="display:fixed">
+    <section id="logo">
+        <figure>
+            <%=image_tag("logo-cka.png", alt: "Culinary Kids Academy")%>
+            <!-- <img src="imgs/layout/logo-cka.png" alt="Culinary Kids Academy"> -->
+            <!-- <figcaption></figcaption> -->
+        </figure>
+        <h1 class="logo">Culinary Kids Academy</h1>
+    </section>
+    
+    <nav role="main-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <ul class="navmenu">
+            <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
+            <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
+            <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
+            <li id="nav-test4">
+            	<form method="POST" action="/session">
+					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+					<input name="_method" value="DELETE" type="hidden">
+	  				<button class="submit">Logout</button>  
+				</form>
+            </li>
+            
+        </ul>       
+    </nav>
+</header>
 
-<!-- <form action="/admin/<%=@admin.id%>/testimonials/<%=@testimonial.id%>" method="POST">
+
+<div id="content">
+
+<form action="/admin/<%=@admin.id%>/testimonials/<%=@testimonial.id%>" method="POST">
 		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 <input type="hidden" name="_method" value="put" />
 <input placeholder="<%=@testimonial.name%>" name="name">
 <input placeholder="<%=@testimonial.description%>" name="description">
 <input type="submit">
-</p> -->
+</p>
 
-<% if @testimonial.image? %>
-	<%=image_tag @testimonial.image.url %>
-	<br>
-	<%= link_to @testimonial.image.url, @testimonial.image.url %>
-<% end %>
+</div>
 
 
 
-<%= form_for @testimonial, :url => admin_path, :html => { :multipart => true } do |form| %>
-  <%= form.file_field :image %>
-  <%= form.submit "Create" %>
-<% end %>
+
 
