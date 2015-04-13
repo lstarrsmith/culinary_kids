@@ -11,7 +11,6 @@ class AdminController < ApplicationController
 		end
 
 		def create 
-			binding.pry
 			new_admin = Admin.create({
 				fname: params["fname"], 
 				lname: params["lname"], 
