@@ -13,29 +13,28 @@
             <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
             <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
             <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
-            <li id="nav-test4">
-            	<form method="POST" action="/session">
-					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-					<input name="_method" value="DELETE" type="hidden">
-	  				<button class="submit">Logout</button>  
-				</form>
+            <li id="nav-test4"><a href="/admin/<%=@admin.id%>">Edit Admin Users</a></li>
+            <li id="nav-test5">
+                <form method="POST" action="/session">
+                    <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+                    <input name="_method" value="DELETE" type="hidden">
+                    <button class="submit">Logout</button>  
+                </form>
             </li>
             
         </ul>       
     </nav>
 </header>
 
-
 <div id="content">
-
-<form action="/admin/<%=@admin.id%>/testimonials/<%=@testimonial.id%>" method="POST">
+    <h1> Edit Testimonials </h1> <br>
+    <form action="/admin/<%=@admin.id%>/testimonials/<%=@testimonial.id%>" method="POST">
 		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-<input type="hidden" name="_method" value="put" />
-<input placeholder="<%=@testimonial.name%>" name="name">
-<input placeholder="<%=@testimonial.description%>" name="description">
-<input type="submit">
-</p>
-
+        <input type="hidden" name="_method" value="put" />
+        <input placeholder="<%=@testimonial.name%>" name="name">
+        <textarea name="description" rows="30" cols="60"><%=@testimonial.description%></textarea><br>
+        <input type="submit">
+    </form>
 </div>
 
 

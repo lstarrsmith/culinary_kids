@@ -385,10 +385,10 @@ ul#board div.description {
     box-sizing: border-box;
     color: #fff;
     padding: 0 1rem;    
-    -webkit-transition:  all .3s ease;
-    -moz-transition:  all .3s ease;
-    -o-transition:  all .3s ease;
-    transition:  all .3s ease;
+    -webkit-transition:  all .7s ease;
+    -moz-transition:  all .7s ease;
+    -o-transition:  all .7s ease;
+    transition:  all .7s ease;
 }
 
 .positioned {               
@@ -403,7 +403,7 @@ ul#board div.description {
 }
 
 #instagram ul li:hover .description,  ul#board li:hover .description {
-    background: rgba(0,0,0,.5);
+    background: rgba(255,255,255,.2);
     opacity: 1;
 }
 /*********** 4. fonts **************************/
@@ -459,7 +459,16 @@ figcaption {
 p.testimonial-content { 
     padding: 0.5rem;
     float: left;
+}
+
+.testimonial-modal-body {
+    text-align: right;
 } 
+
+.testimonial-modal-body em {
+    font-style: italic;
+} 
+
 #copy p {
     font-size: .8rem;
 }
@@ -502,9 +511,20 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     width: 100%;
     height: 100%;
 }
+/*********** 6. Modals ******************/
 
-/*********** 6. media queries ******************/
-
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-body {
+    line-height: 150%
+}
+/*********** 7. media queries ******************/
 
 @media only screen and (min-width: 600px) {     
     #instagram ul li {
@@ -633,7 +653,7 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
 }
 
 
-/*********** 7. admin screens ******************/
+/*********** 8. admin screens ******************/
 
 .image_box {
     border: 1px solid black;
@@ -662,17 +682,14 @@ ul.navmenu li#nav-test4 {
     background-color: #da7a16;
 
 }
-
-#admin_subjects 
-
-
+ 
 ul#admin_subjects {
     margin: 0;
     padding: 0;
 }
 ul#admin_subjects li { 
     float: left;
-    width: 25%;
+    width: 20%;
     padding: 0.6rem;
     text-align: center;
     margin: 0;
@@ -683,12 +700,12 @@ ul#admin_subjects li {
         margin: 2em 0;
     }
     ul#admin_subjects li { 
-        width: 10%;
+        width: 8.5%;
     }
 }
 
 
-/*********** 8. login ******************/
+/*********** 9. login ******************/
 
 
 .wrapper_login {  

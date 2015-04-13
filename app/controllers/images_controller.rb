@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
 
+  before_action :require_login
+
   def index
     @admin = Admin.find_by(id: params['admin_id'])
     render(:index)
@@ -47,5 +49,14 @@ class ImagesController < ApplicationController
   def image_params
   	params.require(:image).permit(:photo, :section_id, :word_overlay)
   end
+
+  private
+
+  def require_login
+      unless session['admin_id'] == params['admin_id'].to_i
+        @login_error = true
+        render 'admin/index'
+      end
+  end 
 
 end

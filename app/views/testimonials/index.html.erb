@@ -13,31 +13,43 @@
             <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
             <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
             <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
-            <li id="nav-test4">
-            	<form method="POST" action="/session">
-					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-					<input name="_method" value="DELETE" type="hidden">
-	  				<button class="submit">Logout</button>  
-				</form>
+            <li id="nav-test4"><a href="/admin/<%=@admin.id%>">Edit Admin Users</a></li>
+            <li id="nav-test5">
+                <form method="POST" action="/session">
+                    <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+                    <input name="_method" value="DELETE" type="hidden">
+                    <button class="submit">Logout</button>  
+                </form>
             </li>
             
         </ul>       
     </nav>
 </header>
 
-
 <div id="content">
-
-<a href="/admin/<%=@admin.id%>/testimonials/new">Create New</a>
-	
-
-		<% @testimonials.each do |t| %>
-
-			<li><%= t.name %>, <%=t.description%> <a href="/admin/<%=@admin.id%>/testimonials/<%=t.id%>/edit">Edit</a><br>
-				<form action="/admin/<%=@admin.id%>/testimonials/<%=t.id%>" method="POST">
-					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-					<input type="hidden" name="_method" value="delete" />
-					<button type="submit">Delete</button>
-			</li>
+    <h1>Edit Testimonials</h1><br>
+    <a class="btn btn-primary" href="/admin/<%=@admin.id%>/testimonials/new">Create New</a>
+    <br>
+		<table class="table">
+        <tr>
+            <th> From </th>
+            <th> Quote </th>
+            <th> Edit </th>
+            <th> Delete </th>
+        </tr>
+        <% @testimonials.each do |t| %>
+            <tr>
+                <td><%= t.name %></td>
+                <td><%= t.description %></td>
+    			<td><a class="btn btn-info" href="/admin/<%=@admin.id%>/testimonials/<%=t.id%>/edit">Edit</a></td>
+                <td>
+    				<form action="/admin/<%=@admin.id%>/testimonials/<%=t.id%>" method="POST">
+    					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+    					<input type="hidden" name="_method" value="delete" />
+    					<button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+    		</tr>
 		<% end %>
+    </table>
 </div>

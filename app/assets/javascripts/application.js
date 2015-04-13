@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require modernizr
+//= require owl.carousel.min
 //= require scripts
 //= require turbolinks
 

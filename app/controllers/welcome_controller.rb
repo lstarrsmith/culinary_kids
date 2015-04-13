@@ -16,7 +16,8 @@ class WelcomeController < ApplicationController
 			# end
 			@section = Section.all
 			@testimonial = Testimonial.all
-			@images = Image.where(section_id: 1).order('id')
+			@images = Image.where(section_id: 1).order('random()').first(18)
+			@images_static = Image.where(section_id: 2).order('id')
 			
 			
 			# turn this on for instagram to flow in

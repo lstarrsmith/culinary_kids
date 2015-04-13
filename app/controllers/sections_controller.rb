@@ -1,10 +1,11 @@
 class SectionsController < ApplicationController
+	
+	before_action :require_login
 
 	def index
-		@sections = Section.all
+		@sections = Section.order('id')
 		@admin = Admin.find_by(id: params["admin_id"])
 	end
-	
 
 	def show 
 		@section = Section.find_by(id: params["id"])
@@ -20,17 +21,19 @@ class SectionsController < ApplicationController
 	end
 
 	def update
-		
 		@section = Section.find(params['id'])
-		@section.update(name: params['name'], description: params['description'])
+		@section.update(description: params['description'])
 		@admin = Admin.find_by(id: params["admin_id"])
       	redirect_to "/admin/#{params["admin_id"]}"
     end
 
-	
+    private
 
-
-
-	
+	def require_login
+		unless session['admin_id'] == params['admin_id'].to_i
+			@login_error = true
+			render 'admin/index'
+		end
+	end	
 
 end

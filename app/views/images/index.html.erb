@@ -13,7 +13,8 @@
             <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
             <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
             <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
-            <li id="nav-test4">
+            <li id="nav-test4"><a href="/admin/<%=@admin.id%>">Edit Admin Users</a></li>
+            <li id="nav-test5">
             	<form method="POST" action="/session">
 					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 					<input name="_method" value="DELETE" type="hidden">
@@ -26,64 +27,72 @@
 </header>
 <div id="content">
 
+<h1> Edit Images </h1> <br>
+
 <section id="our-offering" class="clearfix">
  <ul id="admin_subjects">          
             <li>
-                <a href="#" data-toggle="modal" data-target="#homeModal">
+                <a data-toggle="collapse" href="#home_images_collapse" aria-expanded="false" aria-controls="home_images_collapse">
                      <%=image_tag("logo-cka.png")%>
                 </a>
                 <h4>Home Page</h4>
             </li>
+             <li>
+                <a data-toggle="collapse" href="#home_static_images_collapse" aria-expanded="false" aria-controls="home_static_images_collapse">
+                     <%=image_tag("logo-cka.png")%>
+                </a>
+                <h4>Home Page Static</h4>
+            </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#historyModal">
+                <a data-toggle="collapse" href="#history_images_collapse" aria-expanded="false" aria-controls="history_images_collapse">
                      <%=image_tag("icons/icon-sec-history.png")%>
                 </a>
                 <h4>History</h4>
             </li>
              <li>
-                <a href="#" data-toggle="modal" data-target="#scienceModal">
+                <a data-toggle="collapse" href="#science_images_collapse" aria-expanded="false" aria-controls="science_images_collapse">
                     <%=image_tag("icons/icon-sec-science.png")%>
                 </a>
                 <h4>Science</h4>
             </li>
              <li>
-                <a href="#" data-toggle="modal" data-target="#mathModal">
+                <a data-toggle="collapse" href="#math_images_collapse" aria-expanded="false" aria-controls="math_images_collapse">
                     <%=image_tag("icons/icon-sec-math.png")%>
                 </a>
                 <h4>Math</h4>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#nutritionModal">
+                <a data-toggle="collapse" href="#nutrition_images_collapse" aria-expanded="false" aria-controls="nutrition_images_collapse">
                     <%=image_tag("icons/icon-sec-nutrition.png")%>
                 </a>
                 <h4>Nutrition</h4>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#safetyModal">
+                <a data-toggle="collapse" href="#safety_images_collapse" aria-expanded="false" aria-controls="safety_images_collapse">
                    <%=image_tag("icons/icon-sec-safety.png")%>
                 </a>
                 <h4>Safety</h4>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#judaicModal">
+                <a data-toggle="collapse" href="#judaic_images_collapse" aria-expanded="false" aria-controls="judaic_images_collapse">
                     <%=image_tag("icons/icon-sec-judaic-studies.png")%>
                 </a>
                 <h4>Judaic studies</h4>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#campsModal">
+                <a data-toggle="collapse" href="#camps_images_collapse" aria-expanded="false" aria-controls="camps_images_collapse">
                    <%=image_tag("icons/icon-sec-camps.png")%>
                 </a>
                 <h4>Camps</h4>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#recipesModal">
+                <a data-toggle="collapse" href="#recipes_images_collapse" aria-expanded="false" aria-controls="recipes_images_collapse">
                    <%=image_tag("icons/icon-sec-recipes.png")%>
                 </a>
                 <h4>Recipes</h4>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#testimonialsModal">
+                <a data-toggle="modal" data-target="#testimonialsModal">
                    <%=image_tag("placeholder-testimonials.png")%>
                 </a>
                 <h4>Testimonials</h4>
@@ -94,11 +103,10 @@
 
 
 <div class="container">
-	<a class="btn btn-info" href="/admin/<%=@admin.id%>/images/new">Add Image</a><br>
+	<a class="btn btn-primary" href="/admin/<%=@admin.id%>/images/new">Add Image</a><br>
 
-
-	<button class="btn btn-primary" data-toggle="collapse" href="#home_images_collapse" aria-expanded="false" aria-controls="home_images_collapse">Home Page Images</button>
 		<div class="collapse" id="home_images_collapse">
+			<h1>Home Images</h1>
 			<%@home_image = Image.where(section_id: 1).order('id') %>
 			<% if @home_image %>
 				<% @home_image.each do |img| %>
@@ -110,6 +118,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
@@ -117,12 +126,30 @@
 			<% end %>
 		</div>
 
+		<div class="collapse" id="home_static_images_collapse">
+			<h1>Home Static Images</h1>
+			<%@home_static_image = Image.where(section_id: 2).order('id') %>
+			<% if @home_static_image %>
+				<% @home_static_image.each do |img| %>
+					<div class="image_box">
+					<%= image_tag img.photo.url(:medium) %> <br>
+						<%= img.photo_file_name %> <br><br>
+						<a class="btn btn-default" href="/admin/<%=@admin.id%>/images/<%=img.id%>/edit">Edit</a><br>
+						<form action="/admin/<%=@admin.id%>/images/<%=img.id%>" method="POST">
+							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+							<input type="hidden" name="_method" value="delete" /><br>
+						<button class="btn btn-danger" type="submit">Delete</button>
+						</form>
+					</div>
 
-	<br>
+				<% end %>
+			
+			<% end %>
+		</div>
 
-	<button class="btn btn-primary" data-toggle="collapse" href="#history_images_collapse" aria-expanded="false" aria-controls="history_images_collapse">History Images</button>
 		<div class="collapse" id="history_images_collapse">
-			<%@history_image = Image.where(section_id: 2).order('id') %>
+			<h1>History Images</h1>
+			<%@history_image = Image.where(section_id: 3).order('id') %>
 			<% if @history_image %>
 				<% @history_image.each do |img| %>
 					<div class="image_box">
@@ -133,6 +160,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
@@ -140,9 +168,9 @@
 			<% end %>
 		</div>
 
-	<button class="btn btn-primary" data-toggle="collapse" href="#science_images_collapse" aria-expanded="false" aria-controls="science_images_collapse">Science Images</button>
 		<div class="collapse" id="science_images_collapse">
-			<%@science_image = Image.where(section_id: 3).order('id') %>
+			<h1>Science Images</h1>
+			<%@science_image = Image.where(section_id: 4).order('id') %>
 			<% if @science_image %>
 				<% @science_image.each do |img| %>
 					<div class="image_box">
@@ -153,6 +181,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
@@ -160,10 +189,9 @@
 			<% end %>
 		</div>
 
-
-	<button class="btn btn-primary" data-toggle="collapse" href="#math_images_collapse" aria-expanded="false" aria-controls="math_images_collapse">Math Images</button>
 		<div class="collapse" id="math_images_collapse">
-			<%@math_image = Image.where(section_id: 4).order('id') %>
+			<h1>Math Images</h1>
+			<%@math_image = Image.where(section_id: 5).order('id') %>
 			<% if @math_image %>
 				<% @math_image.each do |img| %>
 					<div class="image_box">
@@ -174,6 +202,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
@@ -181,9 +210,9 @@
 			<% end %>
 		</div>
 
-	<button class="btn btn-primary" data-toggle="collapse" href="#nutrition_images_collapse" aria-expanded="false" aria-controls="nutrition_images_collapse">Nutrition Images</button>
 		<div class="collapse" id="nutrition_images_collapse">
-			<%@nutrition_image = Image.where(section_id: 5).order('id') %>
+			<h1>Nutrition Images</h1>
+			<%@nutrition_image = Image.where(section_id: 6).order('id') %>
 			<% if @nutrition_image %>
 				<% @nutrition_image.each do |img| %>
 					<div class="image_box">
@@ -194,6 +223,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
@@ -201,9 +231,9 @@
 			<% end %>
 		</div>
 
-	<button class="btn btn-primary" data-toggle="collapse" href="#safety_images_collapse" aria-expanded="false" aria-controls="safety_images_collapse">Safety Images</button>
 		<div class="collapse" id="safety_images_collapse">
-			<%@safety_image = Image.where(section_id: 6).order('id') %>
+			<h1>Safety Images</h1>
+			<%@safety_image = Image.where(section_id: 7).order('id') %>
 			<% if @safety_image %>
 				<% @safety_image.each do |img| %>
 					<div class="image_box">
@@ -214,6 +244,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
@@ -221,9 +252,9 @@
 			<% end %>
 		</div>
 
-		<button class="btn btn-primary" data-toggle="collapse" href="#judaic_images_collapse" aria-expanded="false" aria-controls="judaic_images_collapse">Judaic Images</button>
 		<div class="collapse" id="judaic_images_collapse">
-			<%@judaic_image = Image.where(section_id: 7).order('id') %>
+			<h1>Judaic Studies Images</h1>
+			<%@judaic_image = Image.where(section_id: 8).order('id') %>
 			<% if @judaic_image %>
 				<% @judaic_image.each do |img| %>
 					<div class="image_box">
@@ -234,18 +265,17 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
 			
 			<% end %>
 		</div>
-	
 
-
-		<button class="btn btn-primary" data-toggle="collapse" href="#camps_images_collapse" aria-expanded="false" aria-controls="camps_images_collapse">Camps Images</button>
 		<div class="collapse" id="camps_images_collapse">
-			<%@camps_image = Image.where(section_id: 8).order('id') %>
+			<h1>Camps Images</h1>
+			<%@camps_image = Image.where(section_id: 9).order('id') %>
 			<% if @camps_image %>
 				<% @camps_image.each do |img| %>
 					<div class="image_box">
@@ -256,6 +286,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>
@@ -263,10 +294,9 @@
 			<% end %>
 		</div>
 
-
-		<button class="btn btn-primary" data-toggle="collapse" href="#recipes_images_collapse" aria-expanded="false" aria-controls="recipes_images_collapse">Recipes Images</button>
 		<div class="collapse" id="recipes_images_collapse">
-			<%@recipes_image = Image.where(section_id: 9).order('id') %>
+			<h1>Recipes Images</h1>
+			<%@recipes_image = Image.where(section_id: 10).order('id') %>
 			<% if @recipes_image %>
 				<% @recipes_image.each do |img| %>
 					<div class="image_box">
@@ -277,6 +307,7 @@
 							<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 							<input type="hidden" name="_method" value="delete" /><br>
 							<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
 					</div>
 
 				<% end %>

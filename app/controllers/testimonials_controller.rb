@@ -1,5 +1,7 @@
 class TestimonialsController < ApplicationController
 
+	before_action :require_login
+
 	def index
 		@testimonials = Testimonial.order('id')
 		@admin = Admin.find_by(id: params["admin_id"])
@@ -41,5 +43,14 @@ class TestimonialsController < ApplicationController
 	def testimonial_params
 		params.require(:testimonial).permit(:name, :description)
 	end
+
+	private
+
+	def require_login
+		unless session['admin_id'] == params['admin_id'].to_i
+			@login_error = true
+			render 'admin/index'
+		end
+	end	
 
 end

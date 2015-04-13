@@ -13,25 +13,21 @@
             <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
             <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
             <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
-            <li id="nav-test4">
-            	<form method="POST" action="/session">
-					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-					<input name="_method" value="DELETE" type="hidden">
-	  				<button class="submit">Logout</button>  
-				</form>
+            <li id="nav-test4"><a href="/admin/<%=@admin.id%>">Edit Admin Users</a></li>
+            <li id="nav-test5">
+                <form method="POST" action="/session">
+                    <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+                    <input name="_method" value="DELETE" type="hidden">
+                    <button class="submit">Logout</button>  
+                </form>
             </li>
             
         </ul>       
     </nav>
 </header>
 
-
-
-
-
-
 <div id="content">
-
+<h1> Edit Images </h1> <br>
 
 Add new image
 
@@ -40,15 +36,16 @@ Add new image
 <%= f.label "Image file: " %>
 <%= f.file_field :photo %>
 <select name="section_id" id="section_id">
- 	<option value="1">Home Page</option>
- 	<option value="2">History</option>
- 	<option value="3">Science</option>
- 	<option value="4">Math</option>
- 	<option value="5">Nutrition</option>
- 	<option value="6">Safety</option>
- 	<option value="7">Judaic Studies</option>
- 	<option value="8">Camps</option>
- 	<option value="9">Recipes</option>
+    <option value="1">Home Page</option>
+ 	<option value="2">Home Page Static</option>
+ 	<option value="3">History</option>
+ 	<option value="4">Science</option>
+ 	<option value="5">Math</option>
+ 	<option value="6">Nutrition</option>
+ 	<option value="7">Safety</option>
+ 	<option value="8">Judaic Studies</option>
+ 	<option value="9">Camps</option>
+ 	<option value="10">Recipes</option>
  
  </select>
 <%= f.submit "Submit" %>

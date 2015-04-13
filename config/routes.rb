@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post 'session' => 'session#create'
   delete 'session' => 'session#destroy'
 
+  get 'admin/:id/new' => 'admin#new'
+  post 'admin/:id/new' => 'admin#create'
+
   resources :admin
   resources :images
   resources :sections

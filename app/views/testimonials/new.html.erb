@@ -13,33 +13,26 @@
             <li id="nav-test"><a href="/admin/<%=@admin.id%>/sections">Edit Section Content</a></li>
             <li id="nav-test2"><a href="/admin/<%=@admin.id%>/testimonials">Edit Testimonials</a></li>
             <li id="nav-test3"><a href="/admin/<%=@admin.id%>/images">Edit Images</a></li>
-            <li id="nav-test4">
-            	<form method="POST" action="/session">
-					<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-					<input name="_method" value="DELETE" type="hidden">
-	  				<button class="submit">Logout</button>  
-				</form>
+            <li id="nav-test4"><a href="/admin/<%=@admin.id%>">Edit Admin Users</a></li>
+            <li id="nav-test5">
+                <form method="POST" action="/session">
+                    <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+                    <input name="_method" value="DELETE" type="hidden">
+                    <button class="submit">Logout</button>  
+                </form>
             </li>
             
         </ul>       
     </nav>
 </header>
 
-
-
-
 <div id="content">
-
-
-<%= form_for [:admin, @testimonial], url: {action: "create"} do |f| %>
-
-
-<%= f.label "Name: " %>
-<%= f.text_field :name %>
-<%= f.label "Description: " %>
-<%= f.text_field :description %>
-<%= f.submit "Submit" %>
-
-<% end %>
-
+    <h1> Edit Sections </h1> <br>
+    <%= form_for [:admin, @testimonial], url: {action: "create"} do |f| %>
+        <%= f.label "Name: " %>
+        <%= f.text_field :name %>
+        <%= f.label "Description: " %>
+        <%= f.text_field :description %>
+        <%= f.submit "Submit" %>
+    <% end %>
 </div>

@@ -1,6 +1,6 @@
-<div id="menu-show">
+<!-- <div id="menu-show">
     <h2><span class="hamburger">☰</span> MENU</h2>
-</div>
+</div> -->
 <header class="left">
     <section id="logo">
         <figure>
@@ -72,7 +72,7 @@
                             <div class="description-text"></div>
                         </div>
                     </div>
-                    <%= image_tag @images[5].photo.url(:large) %>
+                    <%= image_tag @images_static[0].photo.url(:large) %>
             </li><li id="cka-text">
                     
                     <!-- <div class="cka-text-content">
@@ -88,6 +88,20 @@ incredible academic potential!</h5>
                             <div class="description-text"></div>
                         </div>
                     </div>
+                     <%= image_tag @images_static[1].photo.url(:large) %>
+            </li><li>
+                    <div class="description">
+                        <div class="positioned">
+                            <div class="description-text"></div>
+                        </div>
+                    </div>
+                    <%= image_tag @images[5].photo.url(:large) %>
+            </li><li>
+                    <div class="description">
+                        <div class="positioned">
+                            <div class="description-text"></div>
+                        </div>
+                    </div>
                      <%= image_tag @images[6].photo.url(:large) %>
             </li><li>
                     <div class="description">
@@ -95,7 +109,7 @@ incredible academic potential!</h5>
                             <div class="description-text"></div>
                         </div>
                     </div>
-                    <%= image_tag @images[7].photo.url(:large) %>
+                     <%= image_tag @images[7].photo.url(:large) %>
             </li><li>
                     <div class="description">
                         <div class="positioned">
@@ -109,6 +123,13 @@ incredible academic potential!</h5>
                             <div class="description-text"></div>
                         </div>
                     </div>
+                    <%= image_tag @images_static[2].photo.url(:large) %>
+            </li><li>
+                    <div class="description">
+                        <div class="positioned">
+                            <div class="description-text"></div>
+                        </div>
+                    </div>
                      <%= image_tag @images[9].photo.url(:large) %>
             </li><li>
                     <div class="description">
@@ -116,28 +137,7 @@ incredible academic potential!</h5>
                             <div class="description-text"></div>
                         </div>
                     </div>
-                     <%= image_tag @images[10].photo.url(:large) %>
-            </li><li>
-                    <div class="description">
-                        <div class="positioned">
-                            <div class="description-text"></div>
-                        </div>
-                    </div>
-                    <%= image_tag @images[11].photo.url(:large) %>
-            </li><li>
-                    <div class="description">
-                        <div class="positioned">
-                            <div class="description-text"></div>
-                        </div>
-                    </div>
-                     <%= image_tag @images[11].photo.url(:large) %>
-            </li><li>
-                    <div class="description">
-                        <div class="positioned">
-                            <div class="description-text"></div>
-                        </div>
-                    </div>
-                     <%= image_tag @images[11].photo.url(:large) %>
+                     <%= image_tag @images_static[3].photo.url(:large) %>
             </li></ul>
     </section>
     <section id="our-offering" class="clearfix">
@@ -156,7 +156,15 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">History</h4>
                         </div>
                         <div class="modal-body">
-                        <% @history = Section.find_by(id: 2) %>
+                            <div class="owl-carousel">
+                                <% @history_images = Image.where(section_id: 3) %>
+                                <% if @history_images %>
+                                    <% @history_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        <% @history = Section.find_by(id: 3) %>
                         <%=@history[:description]%>
 
                         </div>
@@ -181,8 +189,16 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Science</h4>
                         </div>
                         <div class="modal-body">
+                            <div class="owl-carousel">
+                                <% @science_images = Image.where(section_id: 4) %>
+                                <% if @science_images %>
+                                    <% @science_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
                            
-                        <% @science = Section.find_by(id: 3) %>
+                        <% @science = Section.find_by(id: 4) %>
                         <%=@science[:description]%>
                         </div>
                         <div class="modal-footer">
@@ -206,7 +222,15 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Math</h4>
                         </div>
                         <div class="modal-body">
-                         <% @math = Section.find_by(id: 4) %>
+                            <div class="owl-carousel">
+                                <% @math_images = Image.where(section_id: 5) %>
+                                <% if @math_images %>
+                                    <% @math_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                         <% @math = Section.find_by(id: 5) %>
                         <%=@math[:description]%>
                         </div>
                         <div class="modal-footer">
@@ -230,7 +254,15 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Nutrition</h4>
                         </div>
                         <div class="modal-body">
-                          <% @nutrition = Section.find_by(id: 5) %>
+                            <div class="owl-carousel">
+                                <% @nutrition_images = Image.where(section_id: 6) %>
+                                <% if @nutrition_images %>
+                                    <% @nutrition_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                          <% @nutrition = Section.find_by(id: 6) %>
                         <%=@nutrition[:description]%>
                         </div>
                         <div class="modal-footer">
@@ -254,7 +286,15 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Safety</h4>
                         </div>
                         <div class="modal-body">
-                          <% @safety = Section.find_by(id: 6) %>
+                            <div class="owl-carousel">
+                                <% @safety_images = Image.where(section_id: 7) %>
+                                <% if @safety_images %>
+                                    <% @safety_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                          <% @safety = Section.find_by(id: 7) %>
                         <%=@safety[:description]%>
                         </div>
                         <div class="modal-footer">
@@ -278,7 +318,15 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Judaic Studies</h4>
                         </div>
                         <div class="modal-body">
-                         <% @judaic = Section.find_by(id: 7) %>
+                            <div class="owl-carousel">
+                                <% @judaic_images = Image.where(section_id: 8) %>
+                                <% if @judaic_images %>
+                                    <% @judaic_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                         <% @judaic = Section.find_by(id: 8) %>
                         <%=@judaic[:description]%>
                         </div>
                         <div class="modal-footer">
@@ -302,7 +350,15 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Camps</h4>
                         </div>
                         <div class="modal-body">
-                          <% @camps = Section.find_by(id: 8) %>
+                            <div class="owl-carousel">
+                                <% @camps_images = Image.where(section_id: 9) %>
+                                <% if @camps_images %>
+                                    <% @camps_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                          <% @camps = Section.find_by(id: 9) %>
                         <%=@camps[:description]%>
                         </div>
                         <div class="modal-footer">
@@ -326,7 +382,15 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Recipes</h4>
                         </div>
                         <div class="modal-body">
-                          <% @recipes= Section.find_by(id: 9) %>
+                            <div class="owl-carousel">
+                                <% @recipes_images = Image.where(section_id: 10) %>
+                                <% if @recipes_images %>
+                                    <% @recipes_images.each do |image| %>
+                                        <div> <%= image_tag image.photo.url(:medium) %></div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                          <% @recipes= Section.find_by(id: 10) %>
                         <%=@recipes[:description]%>
                         </div>
                         <div class="modal-footer">
@@ -362,10 +426,10 @@ incredible academic potential!</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title" id="myModalLabel">Testimonials</h4>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body testimonial-modal-body">
                         <% @testimonial.each do |t| %>
-                        <ol> <%= t.name %>: <br>
-                            "<%=t.description%>" <ol><br><br>
+                        <ol><em> "<%=t.description%>" </em><br><br>
+                            <%=t.name%> <ol><br><br><br>
                         <% end %>
                         </div>
                         <div class="modal-footer">

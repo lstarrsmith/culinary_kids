@@ -1,11 +1,11 @@
 
 
-
-
-
   <div class="wrapper_login">
     <form class="form-signin" action="/session" method="POST">    
       <h2 class="form-signin-heading">Please login</h2>
+        <% if @login_error == true %>
+          <h1 style="color:red"> Please login first! </h1><br>
+        <% end %>
       <% if @error == true %>
         <p style="color:red">Invalid login, please try again </p><br>
        <% end %>
