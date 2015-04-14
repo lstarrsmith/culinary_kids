@@ -25,6 +25,9 @@ gem 'jquery-rails'
 # handling large oid files but allowing quick select * queries
 gem 'paperclip', "~> 4.2"
 
+# amazon s3 for photo storage
+gem 'aws-sdk'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
