@@ -12,6 +12,13 @@ $(document).ready(function() {
       itemsDesktopSmall : [979,2]
     });
 
+    $(".owl-carousel2").owlCarousel({
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+      items : 1,
+      itemsDesktop : [1199,1],
+      itemsDesktopSmall : [979,1]
+    });
+
     // modal resizing function
     $(window).resize(function() {
         if ($(window).width() > 751) {

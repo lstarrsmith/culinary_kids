@@ -673,6 +673,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+html, body {
+    height: 100%;
+}
 body {
     line-height: 1;
 }
@@ -765,9 +768,26 @@ h1.logo {
 }
 
 #testimonials {
-    margin: 1rem 0;    
+    /*margin: 1rem 0;*/
 }
-
+#testimonial-content {
+    background: url('../assets/bg-testimonials.jpg') 50% 0 no-repeat;
+    background-size: cover;
+    height: 17rem;
+    color: #fff;
+}
+.table-content {
+    height: 17rem;
+    display: table;
+}
+.cell-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+#blog {
+    background: url('../assets/bg-blog.jpg') 50% 0 no-repeat;
+    background-size: cover;
+}
 #testimonials figure {
     text-align: center;
 }
@@ -775,11 +795,11 @@ h1.logo {
     width: 40%;
 }
 .external-content {
-    min-height: 20.5rem;
-    padding: .5rem;
+    min-height: 17rem;
+    /*padding: .5rem;*/
 }
 .external-content:first-child {
-    padding-bottom: 3rem;
+    /*padding-bottom: 3rem;*/
 }
 button.btn-external {
     position: absolute;
@@ -1047,11 +1067,19 @@ h1, h2, h3, h4, h5, button, nav { font-family: 'Bree-Oblique', serif; }
 h2 span { font-size: 1.375rem;}
 
 #testimonials h2 {
-    font-size: 1.5rem;
-    padding: 10px 0 15px 3rem;
+    font-size: 1.2rem;
+    padding: 0.625rem 3rem 0rem 3rem;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
-
+#testimonials h3 {
+    text-align: center;
+    padding: 0rem 3rem 0.9375rem 3rem;
+}
+#testimonials h2.blog-soon {
+    font-size: 30px;
+    color: #fff;
+}
 h2.testimonial-header {
     background: url('../assets/icons/icon-3-testimonials.png') 0 0 no-repeat;
 
@@ -1068,16 +1096,7 @@ figcaption {
 p.testimonial-content { 
     padding: 0.5rem;
     float: left;
-}
-
-.testimonial-modal-body {
-    text-align: right;
 } 
-
-.testimonial-modal-body em {
-    font-style: italic;
-} 
-
 #copy p {
     font-size: .8rem;
 }
@@ -1120,20 +1139,9 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     width: 100%;
     height: 100%;
 }
-/*********** 6. Modals ******************/
 
-#owl-demo .item{
-  margin: 3px;
-}
-#owl-demo .item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.modal-body {
-    line-height: 150%
-}
-/*********** 7. media queries ******************/
+/*********** 6. media queries ******************/
+
 
 @media only screen and (min-width: 600px) {     
     #instagram ul li {
@@ -1141,7 +1149,7 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     }
     .external-content {
         min-height: 22.5rem;
-        padding-left: 2rem;
+        /*padding-left: 2rem;*/
         width: 50%;
         float: left;
     }
@@ -1163,7 +1171,26 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         text-align: left; 
         padding-bottom: 3rem;
     }
-
+    #testimonials h2 {
+        font-size: 1.5rem;
+        padding: 0.625rem 3rem 0rem 3rem;
+        margin-bottom: 1.5rem;
+    }
+    #testimonials h3 {
+        text-align: center;
+        padding: 0rem 3rem 0.9375rem 3rem;
+    }
+    #testimonials h2.blog-soon {
+        font-size: 2.5rem;
+    }
+    #testimonial-content {
+        height: 20.5rem;
+    }
+    .table-content {
+        height: 20.5rem;
+    }
+    .cell-content {
+    }
 
 
 }
@@ -1180,7 +1207,7 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         width: 50%;
     }
     #testimonials {
-        margin: 1rem 0;    
+        /*margin: 1rem 0;    */
     }
 
     #testimonials figure {
@@ -1189,14 +1216,13 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     }
     .external-content {
         min-height: 20.5rem;
-        padding-left: 2rem;
         width: 50%;
         float: left;
     }
     .external-content:first-child {
-        padding-bottom: 3rem;
+        /*padding-bottom: 3rem;*/
     }
-    #testimonials figure  img {
+    #testimonials figure img {
         width: 90%;
     }
     p.testimonial-content {
@@ -1223,6 +1249,7 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         height: 100%;
         background: #2b2e32;
     }
+    
 
 }
 
@@ -1260,120 +1287,6 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         width: 12.5%;
     }
 }
-
-
-/*********** 8. admin screens ******************/
-
-.image_box {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    width: 350px;
-    display: inline-block;
-}
-
-ul.navmenu li#nav-test {    
- 
-    background-color: #4f8dd1;
-
-}
-ul.navmenu li#nav-test2 {    
-    
-    background-color: #7656a3;
-}
-ul.navmenu li#nav-test3 {    
-    
-    background-color: #7eb960;
-}
-ul.navmenu li#nav-test4 {    
-    
-    background-color: #da7a16;
-
-}
- 
-ul#admin_subjects {
-    margin: 0;
-    padding: 0;
-}
-ul#admin_subjects li { 
-    float: left;
-    width: 20%;
-    padding: 0.6rem;
-    text-align: center;
-    margin: 0;
-}
-
-@media only screen and (min-width: 800px) {       
-    #our-offering {
-        margin: 2em 0;
-    }
-    ul#admin_subjects li { 
-        width: 8.5%;
-    }
-}
-
-
-/*********** 9. login ******************/
-
-
-.wrapper_login {  
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.form-signin {
-  max-width: 380px;
-  padding: 15px 35px 45px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  
-
-}
-
-  .form-signin-heading,
-    .checkbox {
-      margin-bottom: 30px;
-    }
-
-    .checkbox {
-      font-weight: normal;
-    }
-
-    .form-control {
-      position: relative;
-      font-size: 16px;
-      height: auto;
-      padding: 10px;
-        @include box-sizing(border-box);
-
-        &:focus {
-          z-index: 2;
-        }
-    }
-
-   .wrapper_login input[type="text"] {
-      margin-bottom: -1px;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    .wrapper_login input[type="password"] {
-      margin-bottom: 20px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-}
-
-
-
-
-
-
-
-
-
-
 
 
 /*.flex_container {

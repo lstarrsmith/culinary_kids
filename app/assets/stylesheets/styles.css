@@ -64,6 +64,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+html, body {
+    height: 100%;
+}
 body {
     line-height: 1;
 }
@@ -156,9 +159,26 @@ h1.logo {
 }
 
 #testimonials {
-    margin: 1rem 0;    
+    /*margin: 1rem 0;*/
 }
-
+#testimonial-content {
+    background: url('../assets/bg-testimonials.jpg') 50% 0 no-repeat;
+    background-size: cover;
+    height: 17rem;
+    color: #fff;
+}
+.table-content {
+    height: 17rem;
+    display: table;
+}
+.cell-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+#blog {
+    background: url('../assets/bg-blog.jpg') 50% 0 no-repeat;
+    background-size: cover;
+}
 #testimonials figure {
     text-align: center;
 }
@@ -166,11 +186,11 @@ h1.logo {
     width: 40%;
 }
 .external-content {
-    min-height: 20.5rem;
-    padding: .5rem;
+    min-height: 17rem;
+    /*padding: .5rem;*/
 }
 .external-content:first-child {
-    padding-bottom: 3rem;
+    /*padding-bottom: 3rem;*/
 }
 button.btn-external {
     position: absolute;
@@ -438,11 +458,19 @@ h1, h2, h3, h4, h5, button, nav { font-family: 'Bree-Oblique', serif; }
 h2 span { font-size: 1.375rem;}
 
 #testimonials h2 {
-    font-size: 1.5rem;
-    padding: 10px 0 15px 3rem;
+    font-size: 1.2rem;
+    padding: 0.625rem 3rem 0rem 3rem;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
-
+#testimonials h3 {
+    text-align: center;
+    padding: 0rem 3rem 0.9375rem 3rem;
+}
+#testimonials h2.blog-soon {
+    font-size: 30px;
+    color: #fff;
+}
 h2.testimonial-header {
     background: url('../assets/icons/icon-3-testimonials.png') 0 0 no-repeat;
 
@@ -459,16 +487,7 @@ figcaption {
 p.testimonial-content { 
     padding: 0.5rem;
     float: left;
-}
-
-.testimonial-modal-body {
-    text-align: right;
 } 
-
-.testimonial-modal-body em {
-    font-style: italic;
-} 
-
 #copy p {
     font-size: .8rem;
 }
@@ -511,20 +530,9 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     width: 100%;
     height: 100%;
 }
-/*********** 6. Modals ******************/
 
-#owl-demo .item{
-  margin: 3px;
-}
-#owl-demo .item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.modal-body {
-    line-height: 150%
-}
-/*********** 7. media queries ******************/
+/*********** 6. media queries ******************/
+
 
 @media only screen and (min-width: 600px) {     
     #instagram ul li {
@@ -532,7 +540,7 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     }
     .external-content {
         min-height: 22.5rem;
-        padding-left: 2rem;
+        /*padding-left: 2rem;*/
         width: 50%;
         float: left;
     }
@@ -554,7 +562,26 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         text-align: left; 
         padding-bottom: 3rem;
     }
-
+    #testimonials h2 {
+        font-size: 1.5rem;
+        padding: 0.625rem 3rem 0rem 3rem;
+        margin-bottom: 1.5rem;
+    }
+    #testimonials h3 {
+        text-align: center;
+        padding: 0rem 3rem 0.9375rem 3rem;
+    }
+    #testimonials h2.blog-soon {
+        font-size: 2.5rem;
+    }
+    #testimonial-content {
+        height: 20.5rem;
+    }
+    .table-content {
+        height: 20.5rem;
+    }
+    .cell-content {
+    }
 
 
 }
@@ -571,7 +598,7 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         width: 50%;
     }
     #testimonials {
-        margin: 1rem 0;    
+        /*margin: 1rem 0;    */
     }
 
     #testimonials figure {
@@ -580,14 +607,13 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     }
     .external-content {
         min-height: 20.5rem;
-        padding-left: 2rem;
         width: 50%;
         float: left;
     }
     .external-content:first-child {
-        padding-bottom: 3rem;
+        /*padding-bottom: 3rem;*/
     }
-    #testimonials figure  img {
+    #testimonials figure img {
         width: 90%;
     }
     p.testimonial-content {
@@ -614,6 +640,7 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
         height: 100%;
         background: #2b2e32;
     }
+    
 
 }
 
@@ -652,8 +679,13 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     }
 }
 
+/*********** 7. Modals ******************/
 
-/*********** 8. admin screens ******************/
+.modal-body {
+    line-height: 150%
+}
+
+/*********** 8. Admin  ******************/
 
 .image_box {
     border: 1px solid black;

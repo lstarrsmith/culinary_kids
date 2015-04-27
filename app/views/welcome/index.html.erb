@@ -22,8 +22,7 @@
     </nav>
     <ul id="social-icons">
         <li><a href="#" id="fb"> <%=image_tag("icons/icon-6-fb.png", alt: "Facebook")%> </a></li>
-        <li><a href="#" id="pin"><%=image_tag("icons/icon-7-pinterest.png", alt: "Pinterest")%></a></li>
-        <li><a href="#" id="ins"><%=image_tag("icons/icon-8-instagram.png", alt: "Instagram")%></a></li>
+        <li><a href="https://instagram.com/culinarykidsacademy" id="ins"><%=image_tag("icons/icon-8-instagram.png", alt: "Instagram")%></a></li>
     </ul>
     <div id="copy"><p>©2015 Culinary Kids Academy</p></div>
 </header>
@@ -33,7 +32,7 @@
             <li>
                     <div class="description">
                         <div class="positioned">
-                           <!--  <div class="description-text">interactive</div> -->
+                            <div class="description-text"></div>
                         </div>
                     </div>
                     <!-- <img src="imgs/layout/slider/0001.jpg" alt=""> -->
@@ -408,18 +407,47 @@ incredible academic potential!</h5>
         </div>
     </section>
     <section id="testimonials" class="clearfix">
+        
+        <div class="two-col external-content" id="testimonial-content">
+            <div class="table-content owl-carousel2">
+                 <% @testimonial.each do |t| %>
+                    <div class="cell-content item">
+                        <h2>
+                           "<%=t.description%>"
+                        </h2>
+                        <h3>
+                            <%=t.name%>
+                        </h3>
+                    </div>
+                <% end %> 
+            </div>
+        </div>
+        <div class="two-col external-content" id="blog">
+            <div class="table-content">
+                <div class="cell-content">
+                    <h2 class="blog-soon">
+                        “Check back soon to visit our blog.” 
+                    </h2>
+                    
+                </div>
+            </div>  
+        </div>
+    </section>
+    <!-- <section id="testimonials" class="clearfix">
         <div class="two-col external-content">
             <h2 class="testimonial-header">Testimonials</h2>
-            <figure>
-                <%=image_tag("placeholder-testimonials.png", alt: "Testimonials")%>
-                <figcaption>Daniel Jones</figcaption>
+           <figure>
+                
+                <figcaption><p>
+                Jeff Winckler, Principal, Lincoln Elementary School
+            </p></figcaption>
             </figure>           
             <p class="testimonial-name"></p>
             <p class="testimonial-content">
-                “Daniel is extremely  knowledgeable and fun. Kids are eating better, reading more labels, and understand what they are reading. Their habits are changing, and it’s all for the best.”
+                "Lincoln Elementary School values student wellness and health along with academics and Culinary Kids Academy has been a great fit for our school. It meets the needs of our wide variety of age groups and learner types while blending math, science and social studies into its culinary lessons. Our students and staff love it!"
             </p>
-            <button class="btn-external see-them-all" data-toggle="modal" data-target="#testimonialModal" >See them all</button>
-             <div class="modal fade" id="testimonialModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <button class="btn-external see-them-all" data-toggle="modal" data-target="#testimonialModal" >See them all</button> -->
+           <!--   <div class="modal fade" id="testimonialModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -427,10 +455,7 @@ incredible academic potential!</h5>
                             <h4 class="modal-title" id="myModalLabel">Testimonials</h4>
                         </div>
                         <div class="modal-body testimonial-modal-body">
-                        <% @testimonial.each do |t| %>
-                        <ol><em> "<%=t.description%>" </em><br><br>
-                            <%=t.name%> <ol><br><br><br>
-                        <% end %>
+                       
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -443,21 +468,21 @@ incredible academic potential!</h5>
             <h2 class="posts-header">Latest posts</h2>
             <ul id="latest-posts">
                 <li class="clearfix">
-                    <%=image_tag("placeholder-posts-1.png", alt: "")%>
+                   
                     <p>
                         <span class="posts-name">Richard Nyman </span>
                         <span class="posts-title">The CKA Experience on campus</span>
                     </p>
                 </li>
                 <li class="clearfix">
-                    <%=image_tag("placeholder-posts-2.png", alt: "")%>
+                   
                     <p>
                         <span class="posts-name">Melanie Archer </span>
                         <span class="posts-title">7 reasons why you want CKA in your school</span>
                     </p>
                 </li>
                 <li class="clearfix">
-                    <%=image_tag("placeholder-posts-3.png", alt: "")%>
+                   
                     <p>
                         <span class="posts-name">Victoria Yoffie </span>
                         <span class="posts-title">On how eating and excercise know no age</span>
@@ -466,7 +491,7 @@ incredible academic potential!</h5>
             </ul>
             <button class="btn-external go-to-blog">Go to the blog</button>
         </div>
-    </section>
+    </section> -->
     <section id="social" class="clearfix">
         <div class="two-col" id="phone">
             <h2 class="call">Call Us: (310) 463-0715</h2>
@@ -474,8 +499,8 @@ incredible academic potential!</h5>
         <div class="two-col" id="social-icons-big">
             <ul>
                 <li><a href="#" id="fb-big"><%=image_tag("icons/icon-soc-fb.png", alt: "Facebook")%></a></li>
-                <li><a href="#" id="pin-big"><%=image_tag("icons/icon-soc-pinterest.png", alt: "Pinterest")%></a></li>
-                <li><a href="#" id="ins-big"><%=image_tag("icons/icon-soc-instagram.png", alt: "Instagram")%></a></li>
+            
+                <li><a href="https://instagram.com/culinarykidsacademy" id="ins-big"><%=image_tag("icons/icon-soc-instagram.png", alt: "Instagram")%></a></li>
             </ul>
         </div>
     </section>
@@ -483,28 +508,22 @@ incredible academic potential!</h5>
         <ul>
             <li>
                 <div class="description">
-                
-
                 </div>
                 <%= image_tag @low_res[0]['image'] %>
             </li><li>
                 <div class="description">
-                
                 </div>
                 <%= image_tag @low_res[1]['image'] %>
             </li><li>
                 <div class="description">
-                 
                 </div>
                 <%= image_tag @low_res[2]['image'] %>
             </li><li>
                 <div class="description">
-                  
                 </div>
                 <%= image_tag @low_res[3]['image'] %>
             </li><li>
                 <div class="description">
-                  
                 </div>
                 <%= image_tag @low_res[4]['image'] %>
             </li><li>
@@ -526,7 +545,7 @@ incredible academic potential!</h5>
         </ul>
         
     </section>
-    <footer>
+   <!--  <footer>
         <div class="three-col company">
             <h3>CKA</h3>
             <ul>
@@ -555,7 +574,7 @@ incredible academic potential!</h5>
             </form>
         </div>
 
-    </footer>
+    </footer> -->
 </div>
 
 
