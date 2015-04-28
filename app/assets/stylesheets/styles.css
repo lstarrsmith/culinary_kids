@@ -518,6 +518,14 @@ footer .three-col.subscribe {
     padding-bottom: 3rem;
     top: 0;
 }
+
+.testimonial-modal-body {
+    text-align: center;
+}
+
+em {
+    font-style: italic;
+}
 /*********** 5. images *************************/
 
 img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: middle }

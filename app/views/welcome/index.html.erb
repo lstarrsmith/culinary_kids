@@ -440,8 +440,8 @@ incredible academic potential!</h5>
                         </div>
                         <div class="modal-body testimonial-modal-body">
                             <% @testimonial.each do |t| %>
-                            <%= t.description %><br>
-                            <%= t.name %> <br><br>
+                            <em>"<%= t.description %>"</em><br><br>
+                            <%= t.name %> <br><br><br>
                             <% end%>
                         </div>
                         <div class="modal-footer">
