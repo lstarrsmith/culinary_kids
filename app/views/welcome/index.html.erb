@@ -22,7 +22,7 @@
     </nav>
     <ul id="social-icons">
         <li><a href="#" id="fb"> <%=image_tag("icons/icon-6-fb.png", alt: "Facebook")%> </a></li>
-        <li><a href="https://instagram.com/culinarykidsacademy" id="ins"><%=image_tag("icons/icon-8-instagram.png", alt: "Instagram")%></a></li>
+        <li><a href="https://instagram.com/culinarykidsacademy" target="_blank" id="ins"><%=image_tag("icons/icon-8-instagram.png", alt: "Instagram")%></a></li>
     </ul>
     <div id="copy"><p>©2015 Culinary Kids Academy</p></div>
 </header>
@@ -409,17 +409,16 @@ incredible academic potential!</h5>
     <section id="testimonials" class="clearfix">
         
         <div class="two-col external-content" id="testimonial-content">
-            <div class="table-content owl-carousel2">
-                 <% @testimonial.each do |t| %>
-                    <div class="cell-content item">
-                        <h2>
-                           "<%=t.description%>"
-                        </h2>
-                        <h3>
-                            <%=t.name%>
-                        </h3>
-                    </div>
-                <% end %> 
+            <div class="table-content"> 
+                <div class="cell-content item">
+                    <h2>
+                       "<%=@testimonial[0].description%>"
+                    </h2>
+                    <h3>
+                        <%=@testimonial[0].name%>
+                    </h3>
+                </div>
+                <button class="btn-external see-them-all" data-toggle="modal" data-target="#testimonialModal" >See them all</button> 
             </div>
         </div>
         <div class="two-col external-content" id="blog">
@@ -432,6 +431,25 @@ incredible academic potential!</h5>
                 </div>
             </div>  
         </div>
+        <div class="modal fade" id="testimonialModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Testimonials</h4>
+                        </div>
+                        <div class="modal-body testimonial-modal-body">
+                            <% @testimonial.each do |t| %>
+                            <%= t.description %><br>
+                            <%= t.name %> <br><br>
+                            <% end%>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </section>
     <!-- <section id="testimonials" class="clearfix">
         <div class="two-col external-content">
@@ -500,7 +518,7 @@ incredible academic potential!</h5>
             <ul>
                 <li><a href="#" id="fb-big"><%=image_tag("icons/icon-soc-fb.png", alt: "Facebook")%></a></li>
             
-                <li><a href="https://instagram.com/culinarykidsacademy" id="ins-big"><%=image_tag("icons/icon-soc-instagram.png", alt: "Instagram")%></a></li>
+                <li><a href="https://instagram.com/culinarykidsacademy" target="_blank" id="ins-big"><%=image_tag("icons/icon-soc-instagram.png", alt: "Instagram")%></a></li>
             </ul>
         </div>
     </section>

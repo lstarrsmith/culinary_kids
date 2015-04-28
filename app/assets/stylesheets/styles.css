@@ -204,7 +204,8 @@ button.btn-external {
 }
 
 button.see-them-all {
-    background: #7fb764;    
+    background: #7fb764; 
+    margin-bottom: 10px;   
 }
 button.go-to-blog {
     background: #d7792b;    
@@ -247,6 +248,10 @@ footer h3 {
 }
 footer li {
     margin-bottom: 1rem;
+}
+
+.item {
+    width: 100%;
 }
 /*********** 3. links and navigation ***********/
 
