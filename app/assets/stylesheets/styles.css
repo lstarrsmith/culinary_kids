@@ -692,6 +692,15 @@ img { max-width: 100%; display: inline-block; font-size: 0; vertical-align: midd
     }
 }
 
+@media only screen and (max-width: 1300px) {
+    #testimonials h2 {
+        font-size: 1rem;
+    }
+    #testimonials h3 {
+        font-size: 1rem;
+    }
+
+}
 /*********** 7. Modals ******************/
 
 .modal-body {
